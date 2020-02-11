@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import myAlert from '../Alert.js'
     export default {
         name: 'my-list',
         props: {
@@ -59,25 +60,25 @@
                         document.documentElement.scrollTop = aP[i].offsetTop
                     }
                 }
+            },
+            showTel: function(tel) {
+                if (!this.bMove) {
+                    // console.log(tel);
+                    myAlert({
+                        title: '呼叫',
+                        body: tel,
+                        confirm: function() {
+                            alert(1)
+                        },
+                        cancel: function() {
+                            alert(2)
+                            document.body.removeChild(document.getElementById('alert'))
+                        }
+                    })
+                } else {
+                    this.bMove = false
+                }
             }
-            // showTel: function(tel) {
-            //     if (!this.bMove) {
-            //         console.log(tel);
-            //         myAlert({
-            //             title: '呼叫',
-            //             body: tel,
-            //             confirm: function() {
-            //                 alert(1)
-            //             },
-            //             cancel: function() {
-            //                 alert(2)
-            //                 document.body.removeChild(document.getElementById('alert'))
-            //             }
-            //         })
-            //     } else {
-            //         this.bMove = false
-            //     }
-            // }
         },
         // 右側索引垂直置中
         mounted: function() {
