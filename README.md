@@ -1,5 +1,7 @@
 # vue-cli-mobile-contacts
 
+## 用 vue-cli 改寫 vue-mobile-contacts
+
 ## Project setup
 ```
 npm install
